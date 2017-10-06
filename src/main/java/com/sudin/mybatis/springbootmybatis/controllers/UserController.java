@@ -23,12 +23,30 @@ public class UserController {
         return userMapper.findAll();
     }
 
-    @GetMapping("/update")
-    private List<Users> update(){
-        Users users=new Users();
-        users.setName("sammy");
-        users.setSalary(8758L);
+    @GetMapping("/insert")
+    private List<Users> insert() {
+        Users users = new Users();
+        users.setName("John");
+        users.setSalary(1111L);
         userMapper.insert(users);
         return userMapper.findAll();
+    }
+
+    @GetMapping("/update")
+    public List<Users> update() {
+        Users users = new Users();
+        users.setName("sudin");
+        users.setSalary(555L);
+        userMapper.update(users);
+        return userMapper.findAll();
+    }
+
+    @GetMapping("/delete")
+        public List<Users> delete () {
+            Users users = new Users();
+            users.setName("John");
+            userMapper.delete(users);
+            return userMapper.findAll();
+
     }
 }
